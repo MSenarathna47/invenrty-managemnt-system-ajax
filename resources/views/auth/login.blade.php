@@ -18,15 +18,22 @@
 
 <body>
     <div class="main-wrapper">
-
         <div class="preloader">
             <div class="lds-ripple">
                 <div class="lds-pos"></div>
                 <div class="lds-pos"></div>
             </div>
         </div>
+
         <div class="auth-wrapper d-flex no-block justify-content-center align-items-center bg-dark">
             <div class="auth-box bg-dark border-top border-secondary">
+                    {{-- error massge --}}
+             @if(session()->has('message'))
+             <div class="alert alert-danger alert-dismissable fade show">
+                 <button class="close" data-dismiss="alert" aria-label="Close">×</button><strong>Invalide!</strong>
+                 {{ session()->get('message') }}
+             </div>
+             @endif
                 <div id="loginform">
                     <div class="text-center p-t-20 p-b-20">
                         <h2 style="color: white;" > User Loging Here</h2>
@@ -40,7 +47,8 @@
                                         <span class="input-group-text bg-success text-white" id="basic-addon1"><i class="ti-user"></i></span>
                                     </div>
                                     <input class="form-control form-control-lg"  type="text" placeholder="Username" id="Username" name="Username" required
-                                    autofocus>                                </div>
+                                    autofocus>
+                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-warning text-white" id="basic-addon2"><i class="ti-pencil"></i></span>

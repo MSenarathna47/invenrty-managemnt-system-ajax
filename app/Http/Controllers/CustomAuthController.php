@@ -30,42 +30,33 @@ class CustomAuthController extends Controller
 
             if($usertype=='0')
             {
-                return redirect()->intended('dashboard')
-                        ->withSuccess('Signed in');
+                return redirect()->intended('admin-dashboard')
+                ->with('message','Signed in');
             }
             if($usertype=='1')
             {
-                return redirect()->intended('admin-dashboard')
-                        ->withSuccess('Signed in');
+                return redirect()->intended('Manager-dashboard')
+                ->with('message','Signed in');
 
             }
             if($usertype=='2')
             {
-                return redirect()->intended('dashboard')
-                ->withSuccess('Signed in');
+                return redirect()->intended('cashier-dashboard')
+                ->with('message','Signed in');
             }
             else
             {
                 return view('');
             }
         }
-        return redirect("login")->withSuccess('Login details are not valid');
+        return redirect("/")->with('message','Login details are not valid');
     }
 
-
-    public function dashboard()
-    {
-        if(Auth::check()){
-            return view('dashboard');
-        }
-
-        return redirect("login")->withSuccess('You are not allowed to access');
-    }
 
     public function signOut() {
         Session::flush();
         Auth::logout();
 
-        return Redirect('login');
+        return Redirect('/');
     }
 }
