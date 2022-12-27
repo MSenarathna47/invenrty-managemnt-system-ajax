@@ -14,6 +14,6 @@ class ManagerController extends Controller
             return view('manager.manager-dashboard');
         }
 
-        return redirect("login")->withSuccess('You are not allowed to access');
+        return redirect("/")->withSuccess('You are not allowed to access');
     }
 }

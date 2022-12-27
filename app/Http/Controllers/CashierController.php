@@ -14,6 +14,6 @@ class CashierController extends Controller
             return view('cashier.cashier-dashboard');
         }
 
-        return redirect("login")->withSuccess('You are not allowed to access');
+        return redirect("/")->withSuccess('You are not allowed to access');
     }
 }

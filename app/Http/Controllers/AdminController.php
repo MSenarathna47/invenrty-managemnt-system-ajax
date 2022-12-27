@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 
 class AdminController extends Controller
@@ -15,14 +16,8 @@ class AdminController extends Controller
             return view('admin.admin-dashboard');
         }
 
-        return redirect("login")->withSuccess('You are not allowed to access');
+        return redirect("/")->withSuccess('You are not allowed to access');
     }
 
 
-    //    ---------------------------------User Managmnet start---------------------------------------
-
-    public function Admin_user_managment()
-    {
-        return view('admin.admin-user-managmnet');
-    }
 }

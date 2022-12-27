@@ -22,8 +22,11 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
 | Admin Routes
 |--------------------------------------------------------------------------
 */
-Route::get('/admin-dashboard', [AdminController::class, 'Admin_dashboard']);
-Route::get('/admin-user-managment', [AdminController::class, 'Admin_user_managment']);
+Route::get('/admin-dashboard',[AdminController::class,'Admin_dashboard']);
+
+
+
+
 
 
 
